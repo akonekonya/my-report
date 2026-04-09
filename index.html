@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>检测报告</title>
-</head>
-<body>
-<h1>检测报告</h1>
-<p>测试：如果能看到这行字，网站就正常工作了。</p>
-</body>
-</html>
+<script>
+// 显示时间
+document.getElementById('time').innerHTML = '生成时间：' + new Date().toLocaleString();
+
+// 从 data.json 读取数据
+fetch('data.json')
+  .then(res => res.json())
+  .then(reportData => {
+    let html = '争片';
+    html += '<thead><tr><th>日期</th><th>检测位置</th><th>缺陷类型</th><th>置信度</th><th>状态</th></tr></thead><tbody>';
+    reportData.forEach(item => {
+      html += `<tr>
+        <td>${item.date}</td>
+        <td>${item.location}</td>
+        <td>${item.type}</td>
+        <td>${item.confidence}</td>
+        <td style="color:${item.status === '合格' ? 'green' : 'red'}">${item.status}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('content').innerHTML = html;
+  })
+  .catch(() => {
+    document.getElementById('content').innerHTML = '加载数据失败';
+  });
+</script>
