@@ -3,88 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>检测报告</title>
-<style>
-body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: Arial, sans-serif;
-  padding: 40px;
-  min-height: 100vh;
-}
-.card {
-  background: white;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-h1 {
-  color: #333;
-  margin-top: 0;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-th, td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-th {
-  background: #667eea;
-  color: white;
-}
-tr:nth-child(even) {
-  background: #f9f9f9;
-}
-.footer {
-  margin-top: 20px;
-  text-align: center;
-  color: #999;
-  font-size: 12px;
-}
-</style>
 </head>
 <body>
-<div class="card">
-<h1>📊 外墙检测报告</h1>
-<div id="time" style="color:#666; margin-bottom:20px;"></div>
-<div id="content"></div>
-<div class="footer">数据实时更新 | 扫码查看最新报告</div>
-</div>
-
-<script>
-// 显示当前时间
-document.getElementById('time').innerHTML = '生成时间：' + new Date().toLocaleString();
-
-// 直接在这里写数据（以后更新报告时修改这里就行）
-const reportData = [
-  { date: '2026-04-01', location: 'A栋东墙', type: '空鼓', confidence: '0.85', status: '需修复' },
-  { date: '2026-04-02', location: 'B栋南墙', type: '渗漏', confidence: '0.72', status: '需修复' },
-  { date: '2026-04-03', location: 'C栋西墙', type: '空鼓', confidence: '0.91', status: '需修复' },
-  { date: '2026-04-04', location: 'D栋北墙', type: '正常', confidence: '0.98', status: '合格' },
-  { date: '2026-04-05', location: 'E栋东墙', type: '渗漏', confidence: '0.63', status: '需修复' },
-  { date: '2026-04-06', location: 'F栋南墙', type: '空鼓', confidence: '0.78', status: '需修复' },
-  { date: '2026-04-07', location: 'G栋西墙', type: '正常', confidence: '0.95', status: '合格' },
-  { date: '2026-04-08', location: 'H栋北墙', type: '空鼓', confidence: '0.82', status: '需修复' }
-];
-
-// 渲染表格
-let html = '<table>';
-html += '<thead><tr><th>日期</th><th>检测位置</th><th>缺陷类型</th><th>置信度</th><th>状态</th></tr></thead><tbody>';
-reportData.forEach(item => {
-  html += `<tr>
-    <td>${item.date}</td>
-    <td>${item.location}</td>
-    <td>${item.type}</td>
-    <td>${item.confidence}</td>
-    <td style="color:${item.status === '合格' ? 'green' : 'red'}">${item.status}</td>
-  </tr>`;
-});
-html += '</tbody></table>';
-document.getElementById('content').innerHTML = html;
-</script>
+<h1>检测报告</h1>
+<p>测试：如果能看到这行字，网站就正常工作了。</p>
 </body>
 </html>
